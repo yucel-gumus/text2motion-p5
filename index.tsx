@@ -34,7 +34,11 @@ class PlaygroundApp {
    * Initialize AI and other services
    */
   private initializeServices(): void {
-    const apiKey = globalThis.process?.env?.GEMINI_API_KEY;
+    // Vercel environment variable'ı için birden fazla yoldan kontrol et
+    const apiKey = globalThis.process?.env?.GEMINI_API_KEY || 
+                   (globalThis as any).VITE_GEMINI_API_KEY ||
+                   (import.meta as any).env?.VITE_GEMINI_API_KEY;
+    
     if (!apiKey) {
       console.error(ERROR_MESSAGES.API_KEY_MISSING);
       return;

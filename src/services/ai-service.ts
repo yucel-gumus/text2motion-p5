@@ -71,6 +71,9 @@ export class AIService {
    * @returns Whether API key is configured
    */
   static isApiKeyAvailable(): boolean {
-    return !!globalThis.process?.env?.GEMINI_API_KEY;
+    const apiKey = globalThis.process?.env?.GEMINI_API_KEY || 
+                   (globalThis as any).VITE_GEMINI_API_KEY ||
+                   (import.meta as any).env?.VITE_GEMINI_API_KEY;
+    return !!apiKey;
   }
 } 
