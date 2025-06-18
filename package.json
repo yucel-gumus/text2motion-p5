@@ -1,0 +1,29 @@
+{
+  "name": "p5js-playground",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "analyze": "npx vite-bundle-analyzer"
+  },
+  "dependencies": {
+    "@google/genai": "latest",
+    "lit": "latest",
+    "marked": "latest",
+    "highlight.js": "^11.11.1",
+    "marked-highlight": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0",
+    "prettier": "^3.0.0",
+    "vite-bundle-analyzer": "^0.7.0"
+  }
+}

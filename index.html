@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <title>P5.js Playground - Modern Yaratıcı Kodlama</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Modern p5.js yaratıcı kodlama playground'u. AI destekli kod üretimi ve canlı önizleme." />
+    <meta name="keywords" content="p5.js, yaratıcı kodlama, AI, playground, generatif sanat, oyun geliştirme" />
+    
+    <!-- Modern Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+    
+    <!-- Import Map for ES Modules -->
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai",
+          "@google/genai/": "https://esm.sh/@google/genai/",
+          "lit": "https://esm.sh/lit",
+          "lit/": "https://esm.sh/lit/",
+          "marked": "https://esm.sh/marked",
+          "marked/": "https://esm.sh/marked/",
+          "highlight.js": "https://esm.sh/highlight.js@^11.11.1",
+          "marked-highlight": "https://esm.sh/marked-highlight@^2.2.1"
+        }
+      }
+    </script>
+    
+    <!-- Optimized Styles -->
+    <link rel="stylesheet" href="/src/styles/optimized-styles.css">
+    
+    <!-- Theme Color for Mobile -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  </head>
+  
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      font-family: 'Inter', sans-serif;
+      color: #f8fafc;
+    ">
+      <div style="text-align: center;">
+        <div style="
+          width: 50px;
+          height: 50px;
+          margin: 0 auto 1rem;
+          border: 3px solid #334155;
+          border-top: 3px solid #6366f1;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        "></div>
+        <p style="font-weight: 500;">🎨 P5.js Playground Yükleniyor...</p>
+      </div>
+    </div>
+    
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+    
+    <!-- Main App Container -->
+    <div id="root"></div>
+    
+    <!-- Main App Script -->
+    <script type="module" src="/index.tsx"></script>
+    
+    <!-- Hide Loading Screen -->
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const loading = document.getElementById('loading');
+          if (loading) {
+            loading.style.opacity = '0';
+            loading.style.transition = 'opacity 0.5s ease-out';
+            setTimeout(() => {
+              loading.remove();
+            }, 500);
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
